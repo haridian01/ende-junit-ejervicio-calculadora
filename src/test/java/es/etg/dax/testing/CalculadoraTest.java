@@ -54,6 +54,28 @@ public class CalculadoraTest {
         var ex = assertThrows(OperacionNoValidaException.class, () -> Calculadora.dividir(4, 0),
                 "La división por cero no está permitida");
         assertEquals(OperacionNoValidaException.MSG, ex.getMessage());
-
     }
+    @Test
+    void dividirNegativos()throws OperacionNoValidaException{
+        int valor1 = -6;
+        int valor2 = -2;
+        int esperado = 3;
+
+        assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
+    @Test
+    void dividirPosNeg()throws OperacionNoValidaException{
+        int valor1 = -6;
+        int valor2 = 2;
+        int esperado = -3;
+
+        assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
+    @Test
+    void dividirPositivos()throws OperacionNoValidaException{
+        int valor1 = 6;
+        int valor2 = 2;
+        int esperado = 3;
+
+        assertEquals(esperado, Calculadora.dividir(valor1, valor2));}
 }
