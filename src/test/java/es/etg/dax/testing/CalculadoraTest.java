@@ -56,4 +56,34 @@ public class CalculadoraTest {
         assertEquals(OperacionNoValidaException.MSG, ex.getMessage());
 
     }
+
+    @Test
+    void dividirPositivos() throws OperacionNoValidaException{
+        int valor1= 2;
+        int valor2 = 2;
+        int esperado = 1;
+
+         assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
+    @Test
+    void dividirNegativos() throws OperacionNoValidaException{
+        int valor1 = -2;
+        int valor2 = -2;
+        int esperado = 1;
+         assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
+    @Test 
+    void dividirNegativosPositivos() throws OperacionNoValidaException{
+         int valor1 = -2;
+        int valor2 = 2;
+        int esperado = -1;
+         assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
+     @Test 
+    void dividirPositivosNegativos() throws OperacionNoValidaException{
+        int valor1 = 2;
+        int valor2 = -2;
+        int esperado = -1;
+         assertEquals(esperado, Calculadora.dividir(valor1, valor2));
+    }
 }
